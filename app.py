@@ -38,7 +38,7 @@ def UserNameInfo():
             sound_url = video.music.play_url
                 # sound_author = video.music.author_name
 
-            df = pd.append([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], ignore_index = True)
+            df = pd.concat([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], ignore_index = True)
              
             # df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
         
