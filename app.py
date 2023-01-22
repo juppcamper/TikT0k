@@ -37,7 +37,10 @@ def UserNameInfo():
 
             df = pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]])
             st.dataframe(df) 
-                # df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
+            df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
+        
+        data = pd.read_csv('{}_videos.csv'.format(account))
+        df = pd.DataFrame(data)
 
     
 UserNameInfo()
