@@ -2,6 +2,9 @@ import streamlit as st
 from tiktokapipy.api import TikTokAPI
 import pandas as pd
 
+import os
+os.system("playwright install")
+
 
 allnames = ["raubbau"]
 
