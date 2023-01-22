@@ -8,7 +8,7 @@ os.system("playwright install")
 names = st.text_input("Account")
 
 
-def UserNameInfo(df):
+def UserNameInfo():
 
     with TikTokAPI() as api:
         user = api.user(names)
@@ -39,6 +39,6 @@ def UserNameInfo(df):
             df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
 
 
-UserNameInfo(df)
+UserNameInfo()
 
 video_data = pd.read_csv('{}_videos.csv'.format(names))
