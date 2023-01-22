@@ -10,7 +10,7 @@ allnames = ["raubbau"]
 
 def UserNameInfo():
     for names in allnames:
-        with TikTokAPI(scroll_down_time = 30) as api:
+        with TikTokAPI() as api:
             user = api.user(names)
             print(len(user.videos._light_models))
             for video in user.videos:
