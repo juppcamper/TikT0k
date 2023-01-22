@@ -7,11 +7,11 @@ os.system("playwright install")
 
 names = st.text_input("Account")
 
-st.write("alpha_0.0.3")
+st.write("alpha_0.0.4")
 
 df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
 
-def UserNameInfo():
+def UserNameInfo(df):
 
     with TikTokAPI() as api:
         user = api.user(names)
@@ -45,4 +45,4 @@ def UserNameInfo():
         
 
     
-UserNameInfo()
+UserNameInfo(df)
