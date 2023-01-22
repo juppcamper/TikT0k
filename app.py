@@ -7,6 +7,7 @@ os.system("playwright install")
 
 names = st.text_input("Account")
 
+st.write("alpha_0.0.1")
 
 def UserNameInfo():
 
