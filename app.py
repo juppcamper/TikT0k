@@ -4,8 +4,6 @@ import pandas as pd
 
 import os
 os.system("playwright install")
-os.system("sudo playwright install-deps")
-
 
 allnames = ["raubbau"]
 
