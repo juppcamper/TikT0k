@@ -5,7 +5,7 @@ import pandas as pd
 import os
 os.system("playwright install")
 
-names = st.text_input()
+names = st.text_input("Account")
 
 
 def UserNameInfo():
