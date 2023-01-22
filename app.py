@@ -40,8 +40,8 @@ def UserNameInfo():
             st.dataframe(df) 
             df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
         
-        data = pd.read_csv('{}_videos.csv'.format(account))
-        df = pd.DataFrame(data)
+        data = pd.read_csv('tagesschau_videos.csv')
+        dfc = pd.DataFrame(data)
 
     
 UserNameInfo()
