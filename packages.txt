@@ -4,3 +4,11 @@ libgdk-pixbuf-2.0-0
 libdbus-glib-1-2
 libx11-xcb1
 libxcursor1 
+libgtk-3-0
+libasound2
+libxcomposite1
+libxdamage1
+libxrandr2
+libxtst6
+libatk-1.0-0
+libxi6
