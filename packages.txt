@@ -10,5 +10,5 @@ libxcomposite1
 libxdamage1
 libxrandr2
 libxtst6
-libatk-1.0-0
+libatk1.0-0
 libxi6
