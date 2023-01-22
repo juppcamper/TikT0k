@@ -7,8 +7,11 @@ os.system("playwright install")
 
 names = st.text_input("Account")
 
+st.write("alpha_0.0.4")
 
-def UserNameInfo():
+df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
+
+def UserNameInfo(df):
 
     with TikTokAPI() as api:
         user = api.user(names)
@@ -35,10 +38,9 @@ def UserNameInfo():
             sound_url = video.music.play_url
                 # sound_author = video.music.author_name
 
-            df = pd.DataFrame([account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url])
-            df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
-
-
-UserNameInfo()
-
-video_data = pd.read_csv('{}_videos.csv'.format(names))
+            df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
+        st.dataframe(df)     
+            # df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
+        
+    
+UserNameInfo(df)
