@@ -7,7 +7,7 @@ os.system("playwright install")
 
 names = st.text_input("Account")
 
-st.write("alpha_0.0.1")
+st.write("alpha_0.0.2")
 
 df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
 
