@@ -46,7 +46,7 @@ def UserNameInfo(df):
     
 UserNameInfo(df)
 
-analysis = st.beta_container()
+analysis = st.container()
 
 with analysis:
     avg_likes = df["likes"].mean()
@@ -54,4 +54,4 @@ with analysis:
     avg_shares = df["shares"].mean()
     avg_comments = df["comments"].mean()
 
-    st.write(avg_likes, avg_views, avg_shares, avg_comments)
+    st.write(avg_likes)
