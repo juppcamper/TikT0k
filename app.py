@@ -5,9 +5,17 @@ import pandas as pd
 import os
 os.system("playwright install")
 
+
+st.title("TikTok Scraper")
+
+st.mardown("""
+
+This application uses the (inofficial API TikTokPy by Russel Newton)[https://github.com/Russell-Newton/TikTokPy] and is currently under development by Jonathan Kemper. Expect errors. 
+
+""")
+
 names = st.text_input("Account")
 
-st.write("alpha_0.0.4")
 
 df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
 
