@@ -18,7 +18,7 @@ video_limit = st.sidebar.slider("Select the number of videos to display", min_va
 scroll_down_time = st.sidebar.slider("Select the scroll down time", min_value=1, max_value=100, value=50)
 
 
-df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
+df = pd.DataFrame(columns = ["account",  "description", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "sound_name", "sound_url", "id"])
 
 def UserNameInfo(df):
 
@@ -47,7 +47,7 @@ def UserNameInfo(df):
             sound_url = video.music.play_url
             # sound_author = video.music.author_name
 
-            df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
+            df = pd.concat([df, pd.DataFrame([[account,description,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url,id]], columns = df.columns)], ignore_index=True)
         
         st.dataframe(df)
 
