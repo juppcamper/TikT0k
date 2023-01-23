@@ -8,7 +8,7 @@ os.system("playwright install")
 
 st.title("TikTok Scraper")
 
-st.mardown("This application uses the (inofficial API TikTokPy by Russel Newton)[https://github.com/Russell-Newton/TikTokPy] and is currently under development by Jonathan Kemper. Expect errors.")
+st.markdown("This application uses the (inofficial API TikTokPy by Russel Newton)[https://github.com/Russell-Newton/TikTokPy] and is currently under development by Jonathan Kemper. Expect errors.")
 
 names = st.text_input("Account")
 
