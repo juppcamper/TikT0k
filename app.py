@@ -48,9 +48,11 @@ def UserNameInfo(df):
 
         columns = ["views", "likes", "shares", "comments"]
         selected_columns = st.multiselect("Select columns", columns)
-        
-        for col in selected_columns:
-            st.bar_chart(df[col])
+
+        if selected_columns:
+            st.bar_chart(df[selected_columns])
+        else:
+            st.warning("Please select at least one column to display the chart")
 
     
 UserNameInfo(df)
