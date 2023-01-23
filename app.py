@@ -47,7 +47,7 @@ def UserNameInfo(df):
             sound_url = video.music.play_url
             # sound_author = video.music.author_name
 
-            df = pd.concat([df, pd.DataFrame([[account,description,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url,id]], columns = df.columns)], ignore_index=True)
+            df = pd.concat([df, pd.DataFrame([[account,description,cover,dynamic_cover,url,length,time,likes,views,shares,comments,sound_name,sound_url,id]], columns = df.columns)], ignore_index=True)
         
         st.dataframe(df)
 
