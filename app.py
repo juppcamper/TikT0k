@@ -39,8 +39,11 @@ def UserNameInfo(df):
                 # sound_author = video.music.author_name
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
-        st.dataframe(df)     
+        st.dataframe(df)
+        df2 = df["likes"].mean()
+        st.write(df2)
             # df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
         
     
 UserNameInfo(df)
+
