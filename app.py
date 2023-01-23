@@ -20,6 +20,7 @@ scroll_down_time = st.sidebar.slider("Select the scroll down time", min_value=1,
 
 df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
 
+@st.cache
 def UserNameInfo(df):
 
     with TikTokAPI() as api:
@@ -45,7 +46,7 @@ def UserNameInfo(df):
                 
             sound_name = video.music.title
             sound_url = video.music.play_url
-                # sound_author = video.music.author_name
+            # sound_author = video.music.author_name
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         st.dataframe(df)
@@ -62,8 +63,5 @@ def UserNameInfo(df):
             st.bar_chart(df[selected_columns])
         else:
             st.warning("Please select at least one column to display the chart")
-
-
-
     
 UserNameInfo(df)
