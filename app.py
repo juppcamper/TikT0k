@@ -45,4 +45,4 @@ def UserNameInfo(df):
         
     
 UserNameInfo(df)
-st.barchart(df['views'])
+st.bar_chart(df['views'])
