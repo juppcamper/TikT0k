@@ -21,7 +21,7 @@ scroll_down_time = st.sidebar.slider("Select the scroll down time", min_value=1,
 df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
 
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def UserNameInfo(df):
 
     with TikTokAPI() as api:
