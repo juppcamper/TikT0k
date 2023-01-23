@@ -51,23 +51,21 @@ def UserNameInfo(df):
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         
-        st.dataframe(df)
 
         if st.button('Export CSV'):
             csv_file = df.to_csv("data.csv", index=False)
             b64 = base64.b64encode(csv_file.encode()).decode()  # some strings <-> bytes conversions
             href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a>'
             st.markdown(href, unsafe_allow_html=True)
-    
-def ShowBarChart(df):
-    columns = ["views", "likes", "shares", "comments", "length"]
-    selected_columns = st.multiselect("Select columns", columns)
-    if selected_columns:
-        st.bar_chart(df[selected_columns])
-    else:
-        st.warning("Please select at least one column to display the chart")
+        columns = ["views", "likes", "shares", "comments", "length"]
+        selected_columns = st.multiselect("Select columns", columns)
+        if selected_columns:
+            st.bar_chart(df[selected_columns])
+        else:
+            st.warning("Please select at least one column to display the chart")
 
 if st.button("Get Data"):
     UserNameInfo(df)
-    ShowBarChart(df)
+    st.dataframe(df)
+
     
