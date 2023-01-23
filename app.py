@@ -40,10 +40,21 @@ def UserNameInfo(df):
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         st.dataframe(df)
-        df2 = df["likes"].mean()
+        
+        
+
         st.write(df2)
             # df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
         
     
 UserNameInfo(df)
 
+analysis = st.beta_container()
+
+with analysis:
+    avg_likes = df["likes"].mean()
+    avg_views = df["views"].mean()
+    avg_shares = df["shares"].mean()
+    avg_comments = df["comments"].mean()
+
+    st.write(avg_likes, avg_views, avg_shares, avg_comments)
