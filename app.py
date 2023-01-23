@@ -47,7 +47,10 @@ def UserNameInfo(df):
         st.dataframe(df)
 
         columns = ["views", "likes", "shares", "comments"]
-        selected_column = st.selectbox("Select a column", columns)
-        st.bar_chart(df[selected_column])
+        selected_columns = st.multiselect("Select columns", columns)
+        
+        for col in selected_columns:
+            st.bar_chart(df[col])
+
     
 UserNameInfo(df)
