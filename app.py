@@ -12,13 +12,14 @@ st.markdown("This application uses the (inofficial API TikTokPy by Russel Newton
 
 names = st.text_input("Account")
 
+video_limit = st.sidebar.slider("Select the number of videos to display", min_value=1, max_value=100, value=50)
 
 df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
 
 def UserNameInfo(df):
 
     with TikTokAPI() as api:
-        user = api.user(names)
+        user = api.user(names, video_limit = video_limit)
         print(len(user.videos._light_models))
         for video in user.videos:
             account = video.author
