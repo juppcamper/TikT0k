@@ -20,8 +20,6 @@ scroll_down_time = st.sidebar.slider("Select the scroll down time", min_value=1,
 
 df = pd.DataFrame(columns = ["account", "id", "cover", "dynamic_cover", "url", "length", "time", "likes", "views", "shares", "comments", "description", "sound_name", "sound_url"])
 
-
-@st.cache(suppress_st_warning=True)
 def UserNameInfo(df):
 
     with TikTokAPI() as api:
@@ -51,6 +49,7 @@ def UserNameInfo(df):
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         
+        st.dataframe(df)
 
         if st.button('Export CSV'):
             csv_file = df.to_csv("data.csv", index=False)
@@ -64,8 +63,5 @@ def UserNameInfo(df):
         else:
             st.warning("Please select at least one column to display the chart")
 
-if st.button("Get Data"):
-    UserNameInfo(df)
-    st.dataframe(df)
+UserNameInfo(df)
 
-    
