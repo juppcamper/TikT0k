@@ -45,14 +45,9 @@ def UserNameInfo(df):
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         st.dataframe(df)
-        
-        st.markdown("##Views")
-        st.bar_chart(df['views'])
-        st.markdown("##Likes")
-        st.bar_chart(df['likes'])
-        st.markdown("##Shares")
-        st.bar_chart(df['shares'])
-        st.markdown("##Comments")
-        st.bar_chart(df['comments'])
+
+        columns = ["views", "likes", "shares", "comments"]
+        selected_column = st.selectbox("Select a column", columns)
+        st.bar_chart(df[selected_column])
     
 UserNameInfo(df)
