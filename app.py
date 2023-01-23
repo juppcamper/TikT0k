@@ -8,7 +8,7 @@ os.system("playwright install")
 
 st.title("TikTok Scraper")
 
-st.markdown("This application uses the (inofficial API TikTokPy by Russel Newton)[https://github.com/Russell-Newton/TikTokPy] and is currently under development by Jonathan Kemper. Expect errors.")
+st.markdown("This application uses TikTokPy by Russel Newton and is currently under development by Jonathan Kemper. Expect errors. Enter the name of an account in the field below and select the number of videos to scrape with the slider in the sidebar")
 
 names = st.text_input("Account")
 
@@ -45,8 +45,14 @@ def UserNameInfo(df):
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         st.dataframe(df)
-        st.bar_chart(df['views'])
-            # df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
         
+        st.markdown("##Views")
+        st.bar_chart(df['views'])
+        st.markdown("##Likes")
+        st.bar_chart(df['likes'])
+        st.markdown("##Shares")
+        st.bar_chart(df['shares'])
+        st.markdown("##Comments")
+        st.bar_chart(df['comments'])
     
 UserNameInfo(df)
