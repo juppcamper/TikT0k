@@ -51,7 +51,7 @@ def UserNameInfo(df):
         st.dataframe(df)
 
         if st.button('Export CSV'):
-            csv_file = df.to_csv(index=False)
+            csv_file = df.to_csv("data.csv", index=False)
             b64 = base64.b64encode(csv_file.encode()).decode()  # some strings <-> bytes conversions
             href = f'<a href="data:file/csv;base64,{b64}">Download CSV File</a>'
             st.markdown(href, unsafe_allow_html=True)
