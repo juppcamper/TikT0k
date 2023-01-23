@@ -5,6 +5,7 @@ import pandas as pd
 import os
 os.system("playwright install")
 
+st.set_page_config(layout="wide")
 
 st.title("TikTok Scraper")
 
@@ -46,11 +47,11 @@ def UserNameInfo(df):
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         st.dataframe(df)
 
-        columns = ["views", "likes", "shares", "comments"]
+        columns = ["views", "likes", "shares", "comments", "length"]
         selected_columns = st.multiselect("Select columns", columns)
 
         if selected_columns:
-            st.bar_chart(df[selected_columns])
+            st.bar_chart(df[col], subplots=(1, len(selected_columns)))
         else:
             st.warning("Please select at least one column to display the chart")
 
