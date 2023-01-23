@@ -1,6 +1,7 @@
 import streamlit as st
 from tiktokapipy.api import TikTokAPI
 import pandas as pd
+import base64
 
 import os
 os.system("playwright install")
@@ -46,7 +47,7 @@ def UserNameInfo(df):
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         st.dataframe(df)
-        
+
         if st.button('Export CSV'):
             csv_file = df.to_csv(index=False)
             b64 = base64.b64encode(csv_file.encode()).decode()  # some strings <-> bytes conversions
