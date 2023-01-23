@@ -40,8 +40,9 @@ def UserNameInfo(df):
 
             df = pd.concat([df, pd.DataFrame([[account,id,cover,dynamic_cover,url,length,time,likes,views,shares,comments,description,sound_name,sound_url]], columns = df.columns)], ignore_index=True)
         st.dataframe(df)
-        st.barchart(df['views'])
+        
             # df.to_csv('{}_videos.csv'.format(account), mode='a', index=False, header=False)
         
     
 UserNameInfo(df)
+st.barchart(df['views'])
