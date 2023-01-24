@@ -22,8 +22,8 @@ df = pd.DataFrame(columns = ["account",  "description", "cover", "dynamic_cover"
 
 def UserNameInfo(df):
 
-    with TikTokAPI(navigation_timeout=120) as api:
-        user = api.user(names, video_limit = video_limit, scroll_down_time = scroll_down_time)
+    with TikTokAPI(navigation_timeout=120, scroll_down_time = scroll_down_time) as api:
+        user = api.user(names, video_limit = video_limit)
         print(len(user.videos._light_models))
         for video in user.videos:
             account = video.author
